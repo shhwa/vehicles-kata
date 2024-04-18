@@ -6,11 +6,11 @@ public class Vehicle
     public Speed _maxSpeed;
     public Terrain _terrain;
     
-    public Vehicle(VehicleType carType)
+    public Vehicle(VehicleType vehicleType)
     {
-        _speedType = carType.SpeedType;
-        _maxSpeed = carType.MaxSpeed;
-        _terrain = carType.Terrain;
+        _speedType = vehicleType.SpeedType;
+        _maxSpeed = vehicleType.MaxSpeed;
+        _terrain = vehicleType.Terrain;
     }
     public Terrain GetTerrain()
     {
