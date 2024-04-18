@@ -85,6 +85,16 @@ public class Tests
         var wayfairer = Vehicle.CreateVehicle(wayfairerType);
         Assert.That(wayfairer.GetSpeed(), Is.EqualTo("50 knots"));
     }
+    
+    [Test]
+    public void Get_all_vehicle_types_from_repository()
+    {
+        var ferrariType = new VehicleType(new Speed(300, SpeedType.mph), SpeedType.mph, Terrain.Roads);
+        var vehiclesTypeRepo = new VehicleTypesRepository();
+        vehiclesTypeRepo.Add(ferrariType);
+        var allVehicleTypes = vehiclesTypeRepo.GetAll();
+        Assert.That(allVehicleTypes.Count, Is.EqualTo(1) );
+    }
 }
 
 
