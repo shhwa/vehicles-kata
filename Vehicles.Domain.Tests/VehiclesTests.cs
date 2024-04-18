@@ -95,6 +95,16 @@ public class Tests
         var allVehicleTypes = vehiclesTypeRepo.GetAll();
         Assert.That(allVehicleTypes.Count, Is.EqualTo(1) );
     }
+    
+    [Test]
+    public void Create_a_ferrari_from_a_stored_ferrari_type()
+    {
+        var ferrariType = new VehicleType(new Speed(300, SpeedType.mph), SpeedType.mph, Terrain.Roads);
+        var vehiclesTypeRepo = new VehicleTypesRepository();
+        vehiclesTypeRepo.Add(ferrariType);
+        var ferrari = new Vehicle(vehiclesTypeRepo.GetAll().First());
+        Assert.That(ferrari.GetSpeed(), Is.EqualTo("300 mph"));
+    }
 }
 
 
