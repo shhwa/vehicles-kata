@@ -107,6 +107,8 @@ public class Tests
     }
 }
 
+//Given that there are many types in the vehicletypes repo, we can create a vehicle from a selected type
+
 
 
 
