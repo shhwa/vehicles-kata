@@ -121,4 +121,21 @@ public class Tests
         var rollsroyce = new Vehicle(vehiclesTypeRepo.GetByTypeName("rollsroyce"));
         Assert.That(rollsroyce.GetSpeed(), Is.EqualTo("200 mph"));
     }
+
+    [Test]
+    public void Vehicles_fetched_from_the_repository_should_have_up_to_date_values()
+    {
+        var deloreanType = new VehicleType(new Speed(88, SpeedType.mph), SpeedType.mph, Terrain.Roads, "delorean");
+        var vehiclesTypeRepo = new VehicleTypesRepository();
+        var vehiclesrepo = new VehiclesRepository();
+        vehiclesTypeRepo.Add(deloreanType);
+        var delorean = new Vehicle(vehiclesTypeRepo.GetByTypeName("delorean"));
+        vehiclesrepo.Add(delorean);
+        Assert.That(delorean.GetSpeed(), Is.EqualTo("88 mph"));
+        deloreanType.MaxSpeed = new Speed(98, SpeedType.mph);
+        Assert.That(vehiclesrepo.GetAll().Single().GetSpeed(), Is.EqualTo("98 mph"));
+
+
+
+    }
 }

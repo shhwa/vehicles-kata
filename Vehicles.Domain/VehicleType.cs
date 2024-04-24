@@ -3,7 +3,7 @@
 public class VehicleType
 {
     public SpeedType SpeedType { get; }
-    public Speed MaxSpeed { get; }
+    public Speed MaxSpeed { get; set; }
     public Terrain Terrain { get; }
     public string Name { get; set; }
 
