@@ -5,7 +5,7 @@ namespace Vehicles.Infrastructure;
 public class VehicleTypesRepository
 {
     private List<VehicleType> _vehicleTypes;
-
+    
     public VehicleTypesRepository()
     {
         _vehicleTypes = new List<VehicleType>();
@@ -20,5 +20,10 @@ public class VehicleTypesRepository
     public List<VehicleType> GetAll()
     {
         return _vehicleTypes;
+    }
+
+    public VehicleType GetByTypeName(string vehicleType)
+    {
+        return _vehicleTypes.Single(type => type.Name == vehicleType);
     }
 }

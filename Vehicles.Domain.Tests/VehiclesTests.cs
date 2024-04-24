@@ -105,6 +105,22 @@ public class Tests
         var ferrari = new Vehicle(vehiclesTypeRepo.GetAll().First());
         Assert.That(ferrari.GetSpeed(), Is.EqualTo("300 mph"));
     }
+
+    [Test]
+    public void Create_a_ferrari_from_one_of_multiple_stored_vehicle_types()
+    {
+        var rollsroyceType = new VehicleType(new Speed(200, SpeedType.mph), SpeedType.mph, Terrain.Roads, "rollsroyce");
+        var ferrariType = new VehicleType(new Speed(300, SpeedType.mph), SpeedType.mph, Terrain.Roads, "ferrari");
+        var deloreanType = new VehicleType(new Speed(88, SpeedType.mph), SpeedType.mph, Terrain.Roads, "delorean");
+        var vehiclesTypeRepo = new VehicleTypesRepository();
+        vehiclesTypeRepo.Add(rollsroyceType);
+        vehiclesTypeRepo.Add(ferrariType);
+        vehiclesTypeRepo.Add(deloreanType);
+        var ferrari = new Vehicle(vehiclesTypeRepo.GetByTypeName("ferrari"));
+        Assert.That(ferrari.GetSpeed(), Is.EqualTo("300 mph"));
+        var rollsroyce = new Vehicle(vehiclesTypeRepo.GetByTypeName("rollsroyce"));
+        Assert.That(rollsroyce.GetSpeed(), Is.EqualTo("200 mph"));
+    }
 }
 
 //Given that there are many types in the vehicletypes repo, we can create a vehicle from a selected type
