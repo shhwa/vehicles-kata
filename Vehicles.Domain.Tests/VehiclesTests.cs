@@ -122,12 +122,3 @@ public class Tests
         Assert.That(rollsroyce.GetSpeed(), Is.EqualTo("200 mph"));
     }
 }
-
-//Given that there are many types in the vehicletypes repo, we can create a vehicle from a selected type
-
-
-
-
-
-
-
