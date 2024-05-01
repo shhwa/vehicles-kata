@@ -2,29 +2,25 @@
 
 public class Vehicle
 {
-    private readonly SpeedType _speedType;
-    public Speed _maxSpeed;
-    public Terrain _terrain;
+    public VehicleType _vehicleType;
     
     public Vehicle(VehicleType vehicleType)
     {
-        _speedType = vehicleType.SpeedType;
-        _maxSpeed = vehicleType.MaxSpeed;
-        _terrain = vehicleType.Terrain;
+        _vehicleType = vehicleType;
     }
     public Terrain GetTerrain()
     {
-        return _terrain;
+        return _vehicleType.Terrain;
     }
     public string GetSpeed()
     {
-        if (_speedType == SpeedType.knots)
-            return _maxSpeed.Knots();
-        return _maxSpeed.Mph();
+        if (_vehicleType.SpeedType == SpeedType.knots)
+            return _vehicleType.MaxSpeed.Knots();
+        return _vehicleType.MaxSpeed.Mph();
     }
     public double GetSpeedByMetersPerSecond()
     {
-        return _maxSpeed.MetersPerSecond;
+        return _vehicleType.MaxSpeed.MetersPerSecond;
     }
     
     public static Vehicle CreateVehicle(VehicleType vehicleType)
