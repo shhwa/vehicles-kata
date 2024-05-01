@@ -22,10 +22,5 @@ public class Vehicle
     {
         return _vehicleType.MaxSpeed.MetersPerSecond;
     }
-    
-    public static Vehicle CreateVehicle(VehicleType vehicleType)
-    {
-        return new Vehicle(vehicleType);
-    }
 }
 public enum Terrain {Roads, Water}

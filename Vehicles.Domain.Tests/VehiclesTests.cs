@@ -74,7 +74,7 @@ public class Tests
     public void Can_create_a_car_from_a_type_of_car()
     {
         var ferrariType = new VehicleType(new Speed(300, SpeedType.mph), SpeedType.mph, Terrain.Roads);
-        var ferrari = Vehicle.CreateVehicle(ferrariType);
+        var ferrari = new Vehicle(ferrariType);
         Assert.That(ferrari.GetSpeed(), Is.EqualTo("300 mph"));
     }
     
@@ -82,7 +82,7 @@ public class Tests
     public void Can_create_a_boat_from_a_type_of_boat()
     {
         var wayfairerType = new VehicleType(new Speed(50, SpeedType.knots), SpeedType.knots, Terrain.Water);
-        var wayfairer = Vehicle.CreateVehicle(wayfairerType);
+        var wayfairer = new Vehicle(wayfairerType);
         Assert.That(wayfairer.GetSpeed(), Is.EqualTo("50 knots"));
     }
     
