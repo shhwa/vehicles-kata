@@ -134,8 +134,15 @@ public class Tests
         Assert.That(delorean.GetSpeed(), Is.EqualTo("88 mph"));
         deloreanType.MaxSpeed = new Speed(98, SpeedType.mph);
         Assert.That(vehiclesrepo.GetAll().Single().GetSpeed(), Is.EqualTo("98 mph"));
+    }
 
-
-
+    [Test]
+    public void Get_Max_Road_Speed_On_New_Hovercraft()
+    {
+        var swampMonsterType = new VehicleType(new TerrainSpeed(new Speed(100, SpeedType.mph), Terrain.Roads), "SwampMonster");
+        var swampMonster = new Vehicle(swampMonsterType);
+        Assert.That(swampMonster.GetSpeed(), Is.EqualTo("100 mph"));
     }
 }
+
+

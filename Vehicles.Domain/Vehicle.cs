@@ -20,7 +20,14 @@ public class Vehicle
     }
     public double GetSpeedByMetersPerSecond()
     {
+        Terrain terrain = Terrain.Roads | Terrain.Water;
         return _vehicleType.MaxSpeed.MetersPerSecond;
     }
 }
-public enum Terrain {Roads, Water}
+[Flags]
+public enum Terrain
+{
+    Roads = 1, 
+    Water = 2,
+    Skies = 4
+}

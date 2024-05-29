@@ -21,4 +21,3 @@ public class Speed
         return (MetersPerSecond * 2.2).ToString() + " mph";
     }
 }
-public enum SpeedType {knots, mph}
