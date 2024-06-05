@@ -143,6 +143,15 @@ public class Tests
         var swampMonster = new Vehicle(swampMonsterType);
         Assert.That(swampMonster.GetSpeed(), Is.EqualTo("100 mph"));
     }
+
+    [Test]
+    public void Get_Max_Water_Speed_And_Road_Speed_On_New_Hovercraft()
+    {
+        var swampMonsterType = new VehicleType(new TerrainSpeed(new Speed(150, SpeedType.knots), Terrain.Water), "SwampMonster");
+        var swampMonster = new Vehicle(swampMonsterType);
+        Assert.That(swampMonster.GetSpeed(Terrain.Water), Is.EqualTo("150 knots"));
+        Assert.That(swampMonster.GetSpeed(Terrain.Roads), Is.EqualTo("100 mph"));
+    }
 }
 
 

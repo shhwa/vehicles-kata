@@ -29,4 +29,9 @@ public class VehicleType
         Terrain = terrainSpeed.Terrain;
         Name = name;
     }
+
+    public Speed GetMaxSpeed(Terrain terrain)
+    {
+        throw new NotImplementedException();
+    }
 }
